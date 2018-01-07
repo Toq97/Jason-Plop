@@ -44,19 +44,20 @@ router.post('/', (req, res, next) => {
 /**
  * get with a specific id
  */
-router.get('/:jsonId', (req, res, next) => {
-    const id = req.params.jsonId;
-    if (id === 'special'){
-        res.status(200).json({
-            message: 'special id',
-            id: id
-        });
-    } else {
-        res.status(200).json({
-            message: 'general id'
-        });
-    }
-});
+ router.get('/:jsonId', (req, res, next) => {
+     const id = req.params.jsonId;
+     fs.readFile('./data/' + id + '.json', function(err, data) {
+         if (err) {
+             console.log('file read error', err); // gestire l'errore
+             res.status(404).json({});
+         } else {
+             res.status(200).json({
+             message: 'handling Get request to /json',
+             getJson : JSON.parse(data)
+             });
+         }
+     });
+ });
 /**
  * update a specific Id
  */
