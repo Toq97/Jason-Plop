@@ -37,6 +37,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    // utilizzo dell id col prefisso
+    // var id = generateID({prefix:"id-"});
     const jsonData = {
         name: req.body.name
     };
@@ -51,7 +53,6 @@ router.post('/', (req, res, next) => {
  */
  router.get('/:jsonId', (req, res, next) => {
      const id = req.params.jsonId;
-    // var id = generateID({prefix:"id-"});
      fs.readFile('./data/' + id + '.json', (err, data) => {
          if (err) {
              console.log('file read error', err); // gestire l'errore
@@ -68,18 +69,22 @@ router.post('/', (req, res, next) => {
  * update a specific Id
  */
 router.put('/:jsonId', (req, res, next) => {
-    fs.writeFile('./data/luke.json', JSON.stringify(req.body), (err) => {
-        if(err){
-            console.log('file read error', err); // gestire l'errore
-            res.status(404).json({});
-        } else {
-            res.status(200).json({
-                message: 'update!',
-                jsonUpdated: req.body
+    const id = req.params.jsonId;
+    if(fs.existsSync('./data/' + id + '.json')){
+        fs.writeFile('./data/' + id + '.json', JSON.stringify(req.body), (err) => {
+                if(err){
+                    throw err;
+                } else {
+                    res.status(200).json({
+                        message:'update!',
+                        jsonUpdated: req.body
+                    });
+                }
             });
-        }
-    });
-
+    } else {
+        console.log('file read error'); // gestire l'errore
+        res.status(404).json({});
+    }
 });
 router.delete('/:jsonId', (req, res, next) => {
     res.status(200).json({

@@ -9,7 +9,7 @@ function getFromLocalhost() {
         console.log(getRequest.responseText);
     });
 
-    getRequest.open('GET', 'http://localhost:3000/json', true);
+    getRequest.open('GET', 'http://localhost:3000/json/fdhdfh', true);
 
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
@@ -39,7 +39,7 @@ function getFromGoodBye() {
 
 function putToLocalhost () {
     var putRequest = new XMLHttpRequest();
-    putRequest.open('PUT', 'http://localhost:3000/json/bdsfg');
+    putRequest.open('PUT', 'http://localhost:3000/json/luke');
     putRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     putRequest.onload = function() {
         if (putRequest.status === 200) {
