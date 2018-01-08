@@ -4,6 +4,11 @@
  */
 const express = require('express');
 /**
+ * constant that takes the generateID modules
+ * @type {[generateID]}
+ */
+const generateID = require("unique-id-generator");
+/**
  * define a router
  * @type {[Router]}
  */
@@ -46,7 +51,8 @@ router.post('/', (req, res, next) => {
  */
  router.get('/:jsonId', (req, res, next) => {
      const id = req.params.jsonId;
-     fs.readFile('./data/' + id + '.json', function(err, data) {
+    // var id = generateID({prefix:"id-"});
+     fs.readFile('./data/' + id + '.json', (err, data) => {
          if (err) {
              console.log('file read error', err); // gestire l'errore
              res.status(404).json({});
@@ -61,10 +67,19 @@ router.post('/', (req, res, next) => {
 /**
  * update a specific Id
  */
-router.patch('/:jsonId', (req, res, next) => {
-    res.status(200).json({
-        message: 'update!'
+router.put('/:jsonId', (req, res, next) => {
+    fs.writeFile('./data/luke.json', JSON.stringify(req.body), (err) => {
+        if(err){
+            console.log('file read error', err); // gestire l'errore
+            res.status(404).json({});
+        } else {
+            res.status(200).json({
+                message: 'update!',
+                zemel: req.body
+            });
+        }
     });
+
 });
 router.delete('/:jsonId', (req, res, next) => {
     res.status(200).json({

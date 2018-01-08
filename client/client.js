@@ -39,7 +39,7 @@ function getFromGoodBye() {
 
 function putToLocalhost () {
     var putRequest = new XMLHttpRequest();
-    putRequest.open('PUT', 'http://localhost:3000');
+    putRequest.open('PUT', 'http://localhost:3000/json/bdsfg');
     putRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     putRequest.onload = function() {
         if (putRequest.status === 200) {
