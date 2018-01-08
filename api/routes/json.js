@@ -75,7 +75,7 @@ router.put('/:jsonId', (req, res, next) => {
         } else {
             res.status(200).json({
                 message: 'update!',
-                zemel: req.body
+                jsonUpdated: req.body
             });
         }
     });
