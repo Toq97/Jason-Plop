@@ -41,18 +41,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    // utilizzo dell id col prefisso
     var id = generateID({prefix:"id-"});
-    console.log('id: '+id);
-    console.log('dati: ');
-    console.log(req.body);
     const jsonData = {
         nome: req.body.nome,
         cognome: req.body.cognome,
         missioniEffettuate: req.body.missioniEffettuate,
         missioniDaEffettuare: req.body.missioniDaEffettuare
     };
-    console.log(jsonData);
 
     fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
         if(err){
