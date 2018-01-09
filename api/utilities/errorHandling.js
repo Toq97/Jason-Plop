@@ -3,6 +3,11 @@
  * @type {Module}
  */
 module.exports = {
+    /**
+     * function that control the various type of error
+     * @param  {object} res   [the response of the get requet]
+     * @param  {object} error [contain the properties of the error]
+     */
  errorType : function(error,res){
     switch(error.status) {
         case 204:
@@ -110,5 +115,24 @@ module.exports = {
                 })
             break;
           }
+      },
+/**
+ * function that check the errors in a get request
+ * @param  {buffer} data  [a buffer with all the json data]
+ * @param  {object} res   [the response of the get requet]
+ * @param  {object} error [contain the properties of the error]
+ */
+    checkErrorForGet: function(data, res, error){
+        if(data.length > 4)
+        {
+            res.status(200).json({
+            message: 'handling Get request to /json',
+            getJson : JSON.parse(data)
+            });
+        } else {
+            res.status(204).json();
         }
+
+
+    }
     };
