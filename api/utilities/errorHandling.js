@@ -134,7 +134,11 @@ module.exports = {
 
 
     },
-
+/**
+ * function that check the errors in a put request
+ * @param  {object} res   [the response of the get requet]
+ * @param  {object} error [contain the properties of the error]
+ */
     checkErrorForPut: function(res, error){
         if(error){
             errorType(error,res);
