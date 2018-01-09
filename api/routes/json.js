@@ -18,7 +18,10 @@ const router = express.Router();
  * @type {[type]}
  */
 const fs = require('fs');
-
+/**
+ * contain the module that handle the error
+ * @type {[type]}
+ */
 const errorHandling = require('../utilities/errorHandling');
 /**
  * using router to register different well routes

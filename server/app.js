@@ -23,8 +23,10 @@ const bodyParser = require('body-parser');
  * @type {[router]}
  */
 const jsonRoutes = require('../api/routes/json');
-
-
+/**
+ * contain the module that handle the error
+ * @type {[type]}
+ */
 const errorHandling = require('../api/utilities/errorHandling');
 
 
@@ -65,25 +67,11 @@ app.use('/json', jsonRoutes);
 /**
  * handling error
  */
- app.use((req, res, next) =>{
-     // default error
+ app.use((req, res, next) => {
      const error = new Error('mok');
      error.status = 404;
-     //next(error); //will forward the error request*/
      errorHandling.errorType(error, res);
  });
-
- /*app.use((error, req, res, next) =>{
-
-     res = errorType(error,res);
-     res.status(error.status || 500);
-     res.json({
-         error: {
-             message: error.message
-         }
-     })
- });*/
-
 
 //export the app
 module.exports = app;
