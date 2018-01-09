@@ -5,26 +5,22 @@ function getFromLuke() {
 
     // add event listeners
     getRequest.addEventListener('load', function() {
-        // transform a string into a usable object
-        console.log(getRequest.responseText);
-         document.getElementById('luketext').innerHTML = getRequest.responseText;
+        /** se parso questo mi da object object**/
+        /** se lo vedi non parsato vedi che c'e il json giusto**/
+        var lukeData = JSON.parse(getRequest.responseText);
+        document.getElementById('luketext').innerHTML = lukeData;
     });
-
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
-
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
 
 function getFromLeia() {
     var getRequest = new XMLHttpRequest();
-
     // add event listeners
     getRequest.addEventListener('load', function() {
-        // transform a string into a usable object
-        console.log(getRequest.responseText);
-           document.getElementById('leilatext').innerHTML = getRequest.responseText;
-    });
+    document.getElementById('leilatext').innerHTML = getRequest.responseText;
+});
 
     getRequest.open('GET', 'http://localhost:3000/json/leia', true);
 
@@ -63,9 +59,7 @@ function getFromGoodBye() {
         // transform a string into a usable object
         console.log(getRequestGoodBye.responseText);
     });
-
     getRequestGoodBye.open('GET', 'http://localhost:3000/goodbye', true);
-
     getRequestGoodBye.setRequestHeader('Content-type', 'application/json');
     getRequestGoodBye.send();
 }
@@ -83,13 +77,16 @@ function putToLuke () {
             var userInfo = JSON.parse(putRequest.responseText);
         }
         console.log(putRequest.responseText);
-
     };
 
     putRequest.send(
         JSON.stringify({
-          "nome":"Luke","cognome":"Skywalker","Jedi":"Yes","missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"], "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
-            })
+          "nome":"Luke",
+          "cognome":"Skywalker",
+          "Jedi":"Yes",
+          "missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
+          "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
+        })
     );
 }
 
