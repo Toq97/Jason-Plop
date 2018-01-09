@@ -19,6 +19,11 @@ const router = express.Router();
  */
 const fs = require('fs');
 /**
+ * contain the module that handle the error
+ * @type {[type]}
+ */
+const errorHandling = require('../utilities/errorHandling');
+/**
  * using router to register different well routes
  */
 //insert '/' because /json is insert in app
@@ -27,12 +32,11 @@ router.get('/', (req, res, next) => {
     res.header('Content-Type', 'Application/Json');
     fs.readFile('./data/luke.json', function(err, data) {
         if (err) {
-            console.log('file read error', err); // gestire l'errore
+            errorHandling.errorType(err,res);
         }
-        res.status(200).json({
-            message: 'handling Get request to /json',
-            getJson : JSON.parse(data)
-        });
+        else{
+            errorHandling.checkErrorForGet(data, res, err);
+        }
     });
 });
 
@@ -55,13 +59,10 @@ router.post('/', (req, res, next) => {
      const id = req.params.jsonId;
      fs.readFile('./data/' + id + '.json', (err, data) => {
          if (err) {
-             console.log('file read error', err); // gestire l'errore
-             res.status(404).json({});
+             errorHandling.errorType(err, res);
          } else {
-             res.status(200).json({
-             message: 'handling Get request to /json',
-             getJson : JSON.parse(data)
-             });
+             errorHandling.checkErrorForGet(data, res, err);
+
          }
      });
  });
@@ -72,15 +73,15 @@ router.put('/:jsonId', (req, res, next) => {
     const id = req.params.jsonId;
     if(fs.existsSync('./data/' + id + '.json')){
         fs.writeFile('./data/' + id + '.json', JSON.stringify(req.body), (err) => {
-                if(err){
-                    throw err;
-                } else {
-                    res.status(200).json({
-                        message:'update!',
-                        jsonUpdated: req.body
-                    });
-                }
-            });
+            if(err){
+                throw err;
+            } else {
+                res.status(200).json({
+                    message:'update!',
+                    jsonUpdated: req.body
+                });
+            }
+        });
     } else {
         console.log('file read error'); // gestire l'errore
         res.status(404).json({});
