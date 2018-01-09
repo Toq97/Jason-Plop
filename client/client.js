@@ -94,12 +94,35 @@ function putToLuke () {
 }
 
 
+/*** POST  ***/
+function postToJson() {
+    var postRequest = new XMLHttpRequest();
+    postRequest.open('POST', 'http://localhost:3000/json/');
+    postRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    postRequest.onload = function() {
+        if (postRequest.status === 200) {
+            var userInfo = JSON.parse(postRequest.responseText);
+        }
+        console.log(postRequest.responseText);
+
+    };
+
+    postRequest.send(
+        JSON.stringify({
+          "nome":"Franco","cognome":"De Franchis","Jedi":"Yes","missioniEffettuate":["Fccia pietra","Morte nera mission","Darth Vader mission"], "missioniDaEffettuare":["insegnamento jedi","Potenziamento della forza"]
+            })
+    );
+}
+
+
 var getLukeBtn = document.getElementById('get-Luke');
 var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
 //var getGoodbyeBtn = document.getElementById('get-goodbye');
 //var putLocalhostBtn = document.getElementById('put-localhost');
 var putLukeBtn = document.getElementById('put-luke');
+
+var postBtn = document.getElementById('post-btn');
 
 getLukeBtn.addEventListener('click', getFromLuke);
 getLeiaBtn.addEventListener('click', getFromLeia);
@@ -108,3 +131,5 @@ getHanBtn.addEventListener('click', getFromHan);
 //getGoodbyeBtn.addEventListener('click', getFromGoodBye);
 //putLocalhostBtn.addEventListener('click', putToLocalhost);
 putLukeBtn.addEventListener('click', putToLuke);
+
+postBtn.addEventListener('click', postToJson);

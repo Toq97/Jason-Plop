@@ -42,14 +42,29 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     // utilizzo dell id col prefisso
-    // var id = generateID({prefix:"id-"});
+    var id = generateID({prefix:"id-"});
+    console.log('id: '+id);
+    console.log('dati: ');
+    console.log(req.body);
     const jsonData = {
-        name: req.body.name
+        nome: req.body.nome,
+        cognome: req.body.cognome,
+        missioniEffettuate: req.body.missioniEffettuate,
+        missioniDaEffettuare: req.body.missioniDaEffettuare
     };
-    res.status(200).json({
-        message: 'handling POST request to /json',
-        createdJson: jsonData
+    console.log(jsonData);
+
+    fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
+        if(err){
+            throw err;
+        } else {
+            res.status(200).json({
+                message: 'handling POST request to /json',
+                createdJson: jsonData
+            });
+        }
     });
+    
 });
 
 /**
