@@ -68,7 +68,7 @@ app.use('/json', jsonRoutes);
  * handling error
  */
  app.use((req, res, next) => {
-     const error = new Error('mok');
+     const error = new Error('Not Found');
      error.status = 404;
      errorHandling.errorType(error, res);
  });

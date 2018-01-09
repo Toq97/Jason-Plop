@@ -1,1 +1,7 @@
-{"nome":"Han","cognome":"Solo","Jedi":"no","missioni effetuate":["manunteziine Falcon","distruzzione Morte Nera"], "Missioni da effettuare":["Sopresa a Leia"]}
+{
+    "nome":"Han",
+    "cognome":"Solo",
+    "Jedi":"no",
+    "missioni effetuate":["manuntenzione Falcon","distruzione Morte Nera"],
+    "Missioni da effettuare":["Sopresa a Leia"]
+}

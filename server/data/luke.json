@@ -1,5 +1,7 @@
-<<<<<<< HEAD
-{"name":"John Smith","age":34}
-=======
-{"nome":"Luke","cognome":"Skywalker","Jedi":"Yes","missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],"Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]}
->>>>>>> d9186726196a513006020c1d14b9d756492ce0ae
+{
+    "nome":"Luke",
+    "cognome":"Skywalker",
+    "Jedi":"Yes",
+    "missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
+    "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
+}
