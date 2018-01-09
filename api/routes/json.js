@@ -18,6 +18,8 @@ const router = express.Router();
  * @type {[type]}
  */
 const fs = require('fs');
+
+const errorHandling = require('../utilities/errorHandling');
 /**
  * using router to register different well routes
  */
@@ -58,10 +60,16 @@ router.post('/', (req, res, next) => {
              console.log('file read error', err); // gestire l'errore
              res.status(404).json({});
          } else {
-             res.status(200).json({
-             message: 'handling Get request to /json',
-             getJson : JSON.parse(data)
-             });
+             console.log(data.length);
+             if (data.length > 4) {
+                 res.status(200).json({
+                 message: 'handling Get request to /json',
+                 getJson : JSON.parse(data)
+                 });
+             } else {
+                 res.status(204).json();
+             }
+
          }
      });
  });

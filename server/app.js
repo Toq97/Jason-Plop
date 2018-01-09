@@ -24,6 +24,10 @@ const bodyParser = require('body-parser');
  */
 const jsonRoutes = require('../api/routes/json');
 
+
+const errorHandling = require('../api/utilities/errorHandling');
+
+
 /**
  * morgan permit to log your server error
  *
@@ -61,20 +65,25 @@ app.use('/json', jsonRoutes);
 /**
  * handling error
  */
-app.use((req, res, next) =>{
-    // default error
-    const error = new Error('Not Found');
-    error.status = 404;
-    next(error); //will forward the error request
-});
+ app.use((req, res, next) =>{
+     // default error
+     const error = new Error('mok');
+     error.status = 404;
+     //next(error); //will forward the error request*/
+     errorHandling.errorType(error, res);
+ });
 
-app.use((error, req, res, next) =>{
-    res.status(error.status || 500);
-    res.json({
-        error: {
-            message: error.message
-        }
-    })
-});
+ /*app.use((error, req, res, next) =>{
+
+     res = errorType(error,res);
+     res.status(error.status || 500);
+     res.json({
+         error: {
+             message: error.message
+         }
+     })
+ });*/
+
+
 //export the app
 module.exports = app;

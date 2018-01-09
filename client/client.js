@@ -9,7 +9,7 @@ function getFromLocalhost() {
         console.log(getRequest.responseText);
     });
 
-    getRequest.open('GET', 'http://localhost:3000/json/fdhdfh', true);
+    getRequest.open('GET', 'http://localhost:3000/json/luke', true);
 
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
