@@ -5,10 +5,8 @@ function getFromLuke() {
 
     // add event listeners
     getRequest.addEventListener('load', function() {
-        /** se parso questo mi da object object**/
-        /** se lo vedi non parsato vedi che c'e il json giusto**/
-        var lukeData = JSON.parse(getRequest.responseText);
-        document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
+    var lukeData = JSON.parse(getRequest.responseText);
+    document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -44,27 +42,6 @@ function getFromHan() {
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
-
-
-
-
-//stessa identica chiamata, cambia solo l'url
-
-function getFromGoodBye() {
-    // instantiate a new request
-    var getRequestGoodBye = new XMLHttpRequest();
-
-    // add event listeners
-    getRequestGoodBye.addEventListener('load', function() {
-        // transform a string into a usable object
-        console.log(getRequestGoodBye.responseText);
-    });
-    getRequestGoodBye.open('GET', 'http://localhost:3000/goodbye', true);
-    getRequestGoodBye.setRequestHeader('Content-type', 'application/json');
-    getRequestGoodBye.send();
-}
-
-
 
 /*** PUT  ***/
 

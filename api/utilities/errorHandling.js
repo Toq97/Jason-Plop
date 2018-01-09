@@ -138,7 +138,7 @@ module.exports = {
  * @param  {object} res   [the response of the get requet]
  * @param  {object} error [contain the properties of the error]
  */
-    checkErrorForPut: function(res, error){
+    checkErrorForPut: function(res,req, error){
         if(error){
             errorType(error,res);
         } else {
