@@ -5,17 +5,12 @@ function getFromLuke() {
 
     // add event listeners
     getRequest.addEventListener('load', function() {
-<<<<<<< HEAD
         /** se parso questo mi da object object**/
         /** se lo vedi non parsato vedi che c'e il json giusto**/
         console.log(getRequest.responseText);
         var lukeData = JSON.parse(getRequest.responseText);
         console.log(lukeData)
         document.getElementById('luketext').innerHTML = lukeData.nome;
-=======
-    var lukeData = JSON.parse(getRequest.responseText);
-    document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
->>>>>>> be79ebd74961b6a5c0e70f48e144da1999013b28
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -79,7 +74,6 @@ function putToLuke () {
 
 /*** POST  ***/
 function postToJson() {
-    //console.log(createPostObj());
     var postRequest = new XMLHttpRequest();
     postRequest.open('POST', 'http://localhost:3000/json/');
     postRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
