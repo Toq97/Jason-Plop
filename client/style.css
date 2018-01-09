@@ -99,8 +99,6 @@ margin-bottom: 10px;
   background-color: red;
 }
 
-
-
 #put-Leila{
 
   height: 50px;
@@ -122,4 +120,10 @@ margin-bottom: 10px;
 .leia{
   width: 300px;
   height: 600px;
+}
+
+.post-container {
+  background-color: lightblue; 
+  width: 75%;
+  margin-top: 20px;
 }

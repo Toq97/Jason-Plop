@@ -7,8 +7,10 @@ function getFromLuke() {
     getRequest.addEventListener('load', function() {
         /** se parso questo mi da object object**/
         /** se lo vedi non parsato vedi che c'e il json giusto**/
+        console.log(getRequest.responseText);
         var lukeData = JSON.parse(getRequest.responseText);
-        document.getElementById('luketext').innerHTML = lukeData;
+        console.log(lukeData)
+        document.getElementById('luketext').innerHTML = lukeData.nome;
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -93,6 +95,7 @@ function putToLuke () {
 
 /*** POST  ***/
 function postToJson() {
+    //console.log(createPostObj());
     var postRequest = new XMLHttpRequest();
     postRequest.open('POST', 'http://localhost:3000/json/');
     postRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -105,10 +108,26 @@ function postToJson() {
     };
 
     postRequest.send(
-        JSON.stringify({
-          "nome":"Franco","cognome":"De Franchis","Jedi":"Yes","missioniEffettuate":["Fccia pietra","Morte nera mission","Darth Vader mission"], "missioniDaEffettuare":["insegnamento jedi","Potenziamento della forza"]
-            })
+        JSON.stringify(createPostObj())
     );
+}
+
+var nomePostInput = document.getElementById('nome-post');
+var cognomePostInput = document.getElementById('cognome-post');
+var missione1PostInput = document.getElementById('missione1-post');
+var missione2PostInput = document.getElementById('missione2-post');
+var missione3PostInput = document.getElementById('missione3-post');
+var compiuta1PostInput = document.getElementById('compiuta1-post');
+var compiuta2PostInput = document.getElementById('compiuta2-post');
+var compiuta3PostInput = document.getElementById('compiuta3-post');
+
+function createPostObj() {
+    return {
+        nome: nomePostInput.value,
+        cognome: cognomePostInput.value,
+        missioniDaEffettuare: [missione1PostInput.value, missione2PostInput.value, missione3PostInput.value],
+        missioniEffettuate: [compiuta1PostInput.value,compiuta2PostInput.value, compiuta3PostInput.value]
+    };
 }
 
 

@@ -2,11 +2,6 @@
     "nome":"Luke",
     "cognome":"Skywalker",
     "Jedi":"Yes",
-<<<<<<< HEAD
-    "missions":["Yoda mission","Morte nera mission","Darth Vader mission"],
-    "toBeDone":["insegnamento jedi","Potenziamento della forza"]
-=======
     "missioniEffetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
     "missioniDaEffettuare":["insegnamento jedi","Potenziamento della forza"]
->>>>>>> 28abaf84a2e478f4fa77095ffbef818cdb3cb5f6
 }
