@@ -74,7 +74,7 @@ function getFromGoodBye() {
 
 /*** PUT  ***/
 
-function putToLocalhost () {
+function putToLuke () {
     var putRequest = new XMLHttpRequest();
     putRequest.open('PUT', 'http://localhost:3000/json/luke');
     putRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -83,12 +83,12 @@ function putToLocalhost () {
             var userInfo = JSON.parse(putRequest.responseText);
         }
         console.log(putRequest.responseText);
+
     };
 
     putRequest.send(
         JSON.stringify({
-            "name": "John Smith",
-            "age": 34
+          "nome":"Luke","cognome":"Skywalker","Jedi":"Yes","missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"], "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
             })
     );
 }
@@ -99,6 +99,7 @@ var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
 //var getGoodbyeBtn = document.getElementById('get-goodbye');
 //var putLocalhostBtn = document.getElementById('put-localhost');
+var putLukeBtn = document.getElementById('put-luke');
 
 getLukeBtn.addEventListener('click', getFromLuke);
 getLeiaBtn.addEventListener('click', getFromLeia);
@@ -106,3 +107,4 @@ getHanBtn.addEventListener('click', getFromHan);
 //getLukeBtn.addEventListener('click', getFromOne('luke'));
 //getGoodbyeBtn.addEventListener('click', getFromGoodBye);
 //putLocalhostBtn.addEventListener('click', putToLocalhost);
+putLukeBtn.addEventListener('click', putToLuke);
