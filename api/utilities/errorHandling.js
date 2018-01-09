@@ -126,8 +126,8 @@ module.exports = {
         if(data.length > 4)
         {
             res.status(200).json({
-            message: 'handling Get request to /json',
-            getJson : JSON.parse(data)
+                message: 'handling Get request to /json',
+                getJson : JSON.parse(data)
             });
         } else {
             res.status(204).json();
