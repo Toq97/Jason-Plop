@@ -41,11 +41,13 @@ body{
 #hantext{
     width: 300px;
     background-color: white;
+    margin-left: 305px;
 }
 
 #leilatext{
    width: 300px;
     background-color: white;
+    margin-left: 610px;
 }
 
 .allrequestbutton2{
