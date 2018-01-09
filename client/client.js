@@ -17,7 +17,9 @@ function getFromLeia() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
-    document.getElementById('leilatext').innerHTML = getRequest.responseText;
+      var leilaData = JSON.parse(getRequest.responseText);
+      document.getElementById('leilatext').innerHTML = leilaData.getJson.nome;
+
 });
 
     getRequest.open('GET', 'http://localhost:3000/json/leia', true);
@@ -33,8 +35,8 @@ function getFromHan() {
     // add event listeners
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
-        console.log(getRequest.responseText);
-           document.getElementById('hantext').innerHTML = getRequest.responseText;
+        var hanData = JSON.parse(getRequest.responseText);
+        document.getElementById('hantext').innerHTML = hanData.getJson.nome;
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
