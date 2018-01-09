@@ -123,8 +123,7 @@ module.exports = {
  * @param  {object} error [contain the properties of the error]
  */
     checkErrorForGet: function(data, res, error){
-        if(data.length > 4)
-        {
+        if(data.length > 4){
             res.status(200).json({
                 message: 'handling Get request to /json',
                 getJson : JSON.parse(data)
