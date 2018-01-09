@@ -1,12 +1,13 @@
 /*** GET ***/
 // instantiate a new request
-function getFromLocalhost() {
+function getFromLuke() {
     var getRequest = new XMLHttpRequest();
 
     // add event listeners
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
         console.log(getRequest.responseText);
+         document.getElementById('luketext').innerHTML = getRequest.responseText;
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
@@ -14,6 +15,42 @@ function getFromLocalhost() {
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
+
+function getFromLeia() {
+    var getRequest = new XMLHttpRequest();
+
+    // add event listeners
+    getRequest.addEventListener('load', function() {
+        // transform a string into a usable object
+        console.log(getRequest.responseText);
+           document.getElementById('leilatext').innerHTML = getRequest.responseText;
+    });
+
+    getRequest.open('GET', 'http://localhost:3000/json/leia', true);
+
+    getRequest.setRequestHeader('Content-type', 'application/json');
+    getRequest.send();
+}
+
+
+function getFromHan() {
+    var getRequest = new XMLHttpRequest();
+
+    // add event listeners
+    getRequest.addEventListener('load', function() {
+        // transform a string into a usable object
+        console.log(getRequest.responseText);
+           document.getElementById('hantext').innerHTML = getRequest.responseText;
+    });
+
+    getRequest.open('GET', 'http://localhost:3000/json/han', true);
+
+    getRequest.setRequestHeader('Content-type', 'application/json');
+    getRequest.send();
+}
+
+
+
 
 //stessa identica chiamata, cambia solo l'url
 
@@ -57,10 +94,15 @@ function putToLocalhost () {
 }
 
 
-var getLocalhostBtn = document.getElementById('get-localhost');
-var getGoodbyeBtn = document.getElementById('get-goodbye');
-var putLocalhostBtn = document.getElementById('put-localhost');
+var getLukeBtn = document.getElementById('get-Luke');
+var getHanBtn = document.getElementById('get-Han');
+var getLeiaBtn = document.getElementById('get-Leila');
+//var getGoodbyeBtn = document.getElementById('get-goodbye');
+//var putLocalhostBtn = document.getElementById('put-localhost');
 
-getLocalhostBtn.addEventListener('click', getFromLocalhost);
-getGoodbyeBtn.addEventListener('click', getFromGoodBye);
-putLocalhostBtn.addEventListener('click', putToLocalhost);
+getLukeBtn.addEventListener('click', getFromLuke);
+getLeiaBtn.addEventListener('click', getFromLeia);
+getHanBtn.addEventListener('click', getFromHan);
+//getLukeBtn.addEventListener('click', getFromOne('luke'));
+//getGoodbyeBtn.addEventListener('click', getFromGoodBye);
+//putLocalhostBtn.addEventListener('click', putToLocalhost);
