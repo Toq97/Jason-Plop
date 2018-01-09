@@ -2,7 +2,6 @@
 // instantiate a new request
 function getFromLuke() {
     var getRequest = new XMLHttpRequest();
-
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
@@ -72,7 +71,6 @@ function putToLuke () {
 
 /*** POST  ***/
 function postToJson() {
-    //console.log(createPostObj());
     var postRequest = new XMLHttpRequest();
     postRequest.open('POST', 'http://localhost:3000/json/');
     postRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');

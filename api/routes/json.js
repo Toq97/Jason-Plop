@@ -55,7 +55,8 @@ router.post('/', (req, res, next) => {
         } else {
             res.status(200).json({
                 message: 'handling POST request to /json',
-                createdJson: jsonData
+                createdJson: jsonData,
+                id: id
             });
         }
     });
