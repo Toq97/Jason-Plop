@@ -8,7 +8,7 @@ function getFromLuke() {
         /** se parso questo mi da object object**/
         /** se lo vedi non parsato vedi che c'e il json giusto**/
         var lukeData = JSON.parse(getRequest.responseText);
-        document.getElementById('luketext').innerHTML = lukeData;
+        document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
