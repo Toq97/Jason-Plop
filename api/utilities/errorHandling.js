@@ -134,5 +134,16 @@ module.exports = {
         }
 
 
+    },
+
+    checkErrorForPut: function(res, error){
+        if(error){
+            errorType(error,res);
+        } else {
+            res.status(200).json({
+                message:'update!',
+                jsonUpdated: req.body
+            });
+        }
     }
     };

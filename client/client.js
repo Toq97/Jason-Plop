@@ -88,7 +88,9 @@ function putToLuke () {
 
     putRequest.send(
         JSON.stringify({
-          "nome":"Luke","cognome":"Skywalker","Jedi":"Yes","missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"], "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
+          "nome":"Luke","cognome":"Skywalker","Jedi":"Yes",
+          "missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
+          "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
             })
     );
 }
