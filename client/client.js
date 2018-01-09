@@ -91,23 +91,23 @@ function postToJson() {
 
 
 function managerCollapseluke(){
-  document.getElementById('hantext').innerHTML = "";
-  document.getElementById('leilatext').innerHTML = "";
-   getFromLuke();
+    document.getElementById('hantext').innerHTML = "";
+    document.getElementById('leilatext').innerHTML = "";
+    getFromLuke();
 
 }
 
 function managerCollapseleila(){
-  document.getElementById('hantext').innerHTML = "";
-  document.getElementById('luketext').innerHTML = "";
-  getFromLeia();
+    document.getElementById('hantext').innerHTML = "";
+    document.getElementById('luketext').innerHTML = "";
+    getFromLeia();
 
 }
 
 function managerCollapsehan(){
-  document.getElementById('leilatext').innerHTML = "";
-  document.getElementById('luketext').innerHTML = "";
-  getFromHan();
+    document.getElementById('leilatext').innerHTML = "";
+    document.getElementById('luketext').innerHTML = "";
+    getFromHan();
 
 }
 
