@@ -29,22 +29,25 @@ body{
   width: 100%;
   float: left;
   display: block;
+  margin-bottom: 10px;
 }
 
 #luketext{
 
-
+    width: 300px;
     background-color: white;
 }
 
 #hantext{
-
+    width: 300px;
     background-color: white;
+    margin-left: 305px;
 }
 
 #leilatext{
-
+   width: 300px;
     background-color: white;
+    margin-left: 610px;
 }
 
 .allrequestbutton2{
@@ -123,7 +126,7 @@ margin-bottom: 10px;
 }
 
 .post-container {
-  background-color: lightblue; 
+  background-color: lightblue;
   width: 75%;
   margin-top: 20px;
 }
