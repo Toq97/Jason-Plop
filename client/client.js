@@ -2,7 +2,6 @@
 // instantiate a new request
 function getFromLuke() {
     var getRequest = new XMLHttpRequest();
-
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
