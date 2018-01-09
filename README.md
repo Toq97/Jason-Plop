@@ -40,12 +40,18 @@ Directory client:
 
 
 Directory server:
-- app.js = file used to manage the header of 
+- app.js = file used to manage the header of
 - server.js
 
 Other file:
 - package-lock.json
 - package.json
+
+
+
+
+
+
 
 
 
