@@ -87,6 +87,32 @@ function postToJson() {
     );
 }
 
+
+
+
+function managerCollapseluke(){
+  document.getElementById('hantext').innerHTML = "";
+  document.getElementById('leilatext').innerHTML = "";
+   getFromLuke();
+
+}
+
+function managerCollapseleila(){
+  document.getElementById('hantext').innerHTML = "";
+  document.getElementById('luketext').innerHTML = "";
+  getFromLeia();
+
+}
+
+function managerCollapsehan(){
+  document.getElementById('leilatext').innerHTML = "";
+  document.getElementById('luketext').innerHTML = "";
+  getFromHan();
+
+}
+
+
+
 var nomePostInput = document.getElementById('nome-post');
 var cognomePostInput = document.getElementById('cognome-post');
 var missione1PostInput = document.getElementById('missione1-post');
@@ -115,9 +141,9 @@ var putLukeBtn = document.getElementById('put-luke');
 
 var postBtn = document.getElementById('post-btn');
 
-getLukeBtn.addEventListener('click', getFromLuke);
-getLeiaBtn.addEventListener('click', getFromLeia);
-getHanBtn.addEventListener('click', getFromHan);
+getLukeBtn.addEventListener('click', managerCollapseluke);
+getLeiaBtn.addEventListener('click', managerCollapseleila);
+getHanBtn.addEventListener('click', managerCollapsehan);
 //getLukeBtn.addEventListener('click', getFromOne('luke'));
 //getGoodbyeBtn.addEventListener('click', getFromGoodBye);
 //putLocalhostBtn.addEventListener('click', putToLocalhost);
