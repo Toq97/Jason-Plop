@@ -1,4 +1,11 @@
 /**
+ * file: json.js
+ * @author: group 05: Toquir, Gianluca, Pietro, Stefano
+ * Set the AJAX calls to our server
+ */
+
+
+/**
  * constant that takes the express modules
  * @type {[modules]}
  */
@@ -23,6 +30,10 @@ const fs = require('fs');
  * @type {[type]}
  */
 const errorHandling = require('../utilities/errorHandling');
+
+
+/**** GET  ****/
+ //Handle get calls
 /**
  * using router to register different well routes
  */
@@ -40,29 +51,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) => {
-    var id = generateID({prefix:"id-"});
-    const jsonData = {
-        nome: req.body.nome,
-        cognome: req.body.cognome,
-        missioniEffettuate: req.body.missioniEffettuate,
-        missioniDaEffettuare: req.body.missioniDaEffettuare
-    };
-
-    fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
-        if(err){
-            throw err;
-        } else {
-            res.status(200).json({
-                message: 'handling POST request to /json',
-                createdJson: jsonData,
-                id: id
-            });
-        }
-    });
-
-});
-
 /**
  * get with a specific id
  */
@@ -77,6 +65,38 @@ router.post('/', (req, res, next) => {
          }
      });
  });
+
+ /**** POST ****/
+ //Handle post calls
+ router.post('/', (req, res, next) => {
+    var id = generateID({prefix:"id-"});
+    //the data must have the proper properties
+    const jsonData = {
+        nome: req.body.nome,
+        cognome: req.body.cognome,
+        missioniEffettuate: req.body.missioniEffettuate,
+        missioniDaEffettuare: req.body.missioniDaEffettuare
+    };
+
+    fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
+        if(err){
+            //error 500 if file writing failes
+            res.status(500).json({
+                message: 'Err 500: file writing failed'
+            });
+            throw err;
+        } else {
+            res.status(200).json({
+                message: 'handling POST request to /json',
+                createdJson: jsonData,
+                id: id
+            });
+        }
+    });
+});
+
+/**** PUT ****/
+ //Handle put calls
 /**
  * update a specific Id
  */

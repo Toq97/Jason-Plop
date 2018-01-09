@@ -25,9 +25,6 @@ Ex.
 var morgan = require('morgan')
 ```
 
-
-
-
 **Script files Description:**
 -----------------------
 Directory Api:
@@ -48,8 +45,18 @@ Other file:
 - package.json
 
 
+**Node modules**
+- express
+- morgan: 
+- body-parser:
+- unique-id-generator: 
 
-
+**Postable data**
+To be posted on this server a json must have the following properties:
+- nome: string
+- cognome: string
+- missioniEffetuate: Array
+- missioniDaEffettuare: Array
 
 
 
