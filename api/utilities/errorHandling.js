@@ -125,28 +125,14 @@ module.exports = {
     checkErrorForGet: function(data, res, error){
         if(data.length > 4)
         {
-            var mook= JSON.parse(data);
-            console.log(mook); // questo console invece lo fa vedere
-            res.status(200).json(JSON.parse(data));
+            res.status(200).json({
+            message: 'handling Get request to /json',
+            getJson : JSON.parse(data)
+            });
         } else {
             res.status(204).json();
         }
 
 
-    },
-/**
- * function that check the errors in a put request
- * @param  {object} res   [the response of the get requet]
- * @param  {object} error [contain the properties of the error]
- */
-    checkErrorForPut: function(res, error){
-        if(error){
-            errorType(error,res);
-        } else {
-            res.status(200).json({
-                message:'update!',
-                jsonUpdated: req.body
-            });
-        }
     }
     };
