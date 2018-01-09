@@ -125,10 +125,9 @@ module.exports = {
     checkErrorForGet: function(data, res, error){
         if(data.length > 4)
         {
-            res.status(200).json({
-            message: 'handling Get request to /json',
-            getJson : JSON.parse(data)
-            });
+            var mook= JSON.parse(data);
+            console.log(mook); // questo console invece lo fa vedere
+            res.status(200).json(JSON.parse(data));
         } else {
             res.status(204).json();
         }
