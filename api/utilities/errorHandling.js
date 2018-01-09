@@ -132,8 +132,21 @@ module.exports = {
         } else {
             res.status(204).json();
         }
-
-
+    },
+    /**
+ * function that check the errors in a put request
+ * @param  {object} res   [the response of the get requet]
+ * @param  {object} error [contain the properties of the error]
+ */
+    checkErrorForPut: function(res, error){
+        if(error){
+            errorType(error,res);
+        } else {
+            res.status(200).json({
+                message:'update!',
+                jsonUpdated: req.body
+            });
+        }
     }
-    
+
     };
