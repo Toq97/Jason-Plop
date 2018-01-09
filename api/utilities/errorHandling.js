@@ -1,3 +1,7 @@
+/**
+ * Module that handle all the errors
+ * @type {Module}
+ */
 module.exports = {
  errorType : function(error,res){
     switch(error.status) {
