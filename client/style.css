@@ -3,46 +3,123 @@
  * Contain the style of the jsonplop page
  */
 body{
-  background-color: white;
+  background-size:100%;
 }
 
 .title {
-
+  color: white;
   font-size: 45px;
   margin-left: 50%;
 
 }
 
+.container1{
+  margin-left: 300px;
+}
 
-.requestbutton{
+.allrequestbutton{
   width: 100%;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  float: left;
+  display: block;
+}
+
+.collapsetext{
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+#luketext{
+
+
+    background-color: white;
+}
+
+#hantext{
+
+    background-color: white;
+}
+
+#leilatext{
+
+    background-color: white;
+}
+
+.allrequestbutton2{
+  width: 100%;
+margin-bottom: 10px;
+  float: left;
+  display: block;
 }
 
 
-#get-localhost{
+#get-Luke{
 
   height: 50px;
-  width: 100%;
+  width: 300px;
   font-size: 20px;
   background-color: yellow;
 
 }
 
-#get-goodbye{
+#get-Han{
 
   height: 50px;
-  width: 100%;
+  width: 300px;
   font-size: 20px;
   background-color: yellow;
 }
 
 
 
-#put-localhost{
+#get-Leila{
 
   height: 50px;
-  width: 100%;
+  width: 300px;
+  font-size: 20px;
+  background-color: yellow;
+}
+
+#put-luke{
+
+  height: 50px;
+  width: 300px;
   font-size: 20px;
   background-color: red;
+
+}
+
+#put-Han{
+
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
+  background-color: red;
+}
+
+
+
+#put-Leila{
+
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
+  background-color: red;
+}
+
+.luke{
+  width: 300px;
+  height: 600px;
+}
+
+.Han{
+  width: 300px;
+  height: 600px;
+}
+
+.leia{
+  width: 300px;
+  height: 600px;
 }

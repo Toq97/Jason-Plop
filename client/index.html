@@ -5,17 +5,53 @@
     <title>Page Title</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body background = "immagini/sfondo.jpg">
     <h1 class="title">JSON Plop</h1>
-    <p>Fate occhio che quando fate la put cambiate i dati dentro il file .json, quindi i dati di Luke si perdono definitivamente.
-        Dopo averla fatta andate nel file e annullate la modifica per tornare ai dati originali.
-    </p>
-    <div class="requestbutton"><button id="get-localhost">Get From Localhost</button></div>
-   <div class="requestbutton"><button id="get-goodbye">Get From Goodbye</button></div>
-   <div class="requestbutton"><button id="put-localhost">Put To Localhost</button>
-     <p class="textput" >Nome del file del put:</p><input class="puttextinput" type="text" id="putText">
+
+<div class="container1">
+
+
+<div>
+  <img src="immagini/luke.jpg" class="luke" />
+  <img src="immagini/HanSolo.jpg" class="Han" />
+  <img src="immagini/leia.png" class="leia" />
+</div>
+
+
+    <div class="allrequestbutton">
+  <button id="get-Luke"><p href="#luketext" data-toggle="collapse">Get information about Luke</p></button>
+   <button id="get-Han"><p href="#hantext" data-toggle="collapse">Get information about Han</p></button>
+   <button id="get-Leila"><p href="#leilatext" data-toggle="collapse">Get information about Leila</p></button>
    </div>
+
+<div class="collapsetext">
+
+
+   <div id="luketext" class="collapse">
+   </div>
+   <div id="hantext" class="collapse">
+   </div>
+
+   <div id="leilatext" class="collapse">
+   </div>
+
+</div>
+
+   <div class="allrequestbutton2">
+ <button id="put-luke">Put information about Luke</button>
+  <button id="put-Han"> Put information about Han</button>
+  <button id="put-Leila">Put information about Leia</button>
+  </div>
+
+
+  </div>
     <script src="client.js"></script>
+
+
 </body>
 </html>
