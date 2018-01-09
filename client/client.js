@@ -4,17 +4,8 @@ function getFromLuke() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
-<<<<<<< HEAD
-        /** se parso questo mi da object object**/
-        /** se lo vedi non parsato vedi che c'e il json giusto**/
-        console.log(getRequest.responseText);
-        var lukeData = JSON.parse(getRequest.responseText);
-        console.log(lukeData)
-        document.getElementById('luketext').innerHTML = lukeData.nome;
-=======
         var lukeData = JSON.parse(getRequest.responseText);
         document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
->>>>>>> c9ba395aa99709abbec0f399036cc4b6722e5164
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
