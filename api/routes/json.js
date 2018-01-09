@@ -88,14 +88,7 @@ router.put('/:jsonId', (req, res, next) => {
     const id = req.params.jsonId;
     if(fs.existsSync('./data/' + id + '.json')){
         fs.writeFile('./data/' + id + '.json', JSON.stringify(req.body), (err) => {
-            if(err){
-                throw err;
-            } else {
-                res.status(200).json({
-                    message:'update!',
-                    jsonUpdated: req.body
-                });
-            }
+            errorHandling.checkErrorForPut(res, err);
         });
     } else {
         console.log('file read error'); // gestire l'errore
