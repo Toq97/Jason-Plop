@@ -6,6 +6,19 @@
 The Json Plop
 ========================
 
+**MANAGEMENT OF WORK:**
+-----------------------
+
+    We split the program functions among the members of the group.
+    We have collaborated together working at school and at home using the program : TeamViewer
+    we have shared code with a repository online using Git.
+
+    Files:
+    - server.js: Toqir
+    - app.js : Toqir
+    - client.js : Stefano, Gianluca
+    - errorHandling.js : Pietro
+    - json.js : Gianluca, Toqir
 
 **ClientManager:**
 -----------------------
