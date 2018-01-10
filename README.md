@@ -23,6 +23,10 @@ The Json Plop
 **ClientManager:**
 -----------------------
 
+ For manage the client we used:
+
+ ***client.js***
+
 
 **ServerManager:**
 -----------------------
