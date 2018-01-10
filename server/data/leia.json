@@ -1,7 +1,1 @@
-{
-    "nome":"Leia",
-    "cognome":"Skywalker",
-    "Jedi":"yes",
-    "missionieffetuate":["pace su Tatooine","Morte nera mission"],
-     "missionidaeffettuare":["pace nella galassia","Potenziamento della forza"]
- }
+{"nome":"Leia","cognome":"Skywalker","Jedi":"yes","missionieffetuate":["pace su Tatooine","Morte nera mission"],"missionidaeffettuare":["pace nella galassia","Potenziamento della forza"]}

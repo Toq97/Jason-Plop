@@ -79,20 +79,9 @@ router.get('/', (req, res, next) => {
     };
 
     fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
-        if(err){
-            //error 500 if file writing failes
-            res.status(500).json({
-                message: 'Err 500: file writing failed'
-            });
-            throw err;
-        } else {
-            res.status(200).json({
-                message: 'handling POST request to /json',
-                createdJson: jsonData,
-                id: id
-            });
-        }
+        errorHandling.checkErrorForPost(res, err, jsonData, id);
     });
+
 });
 
 /**** PUT ****/

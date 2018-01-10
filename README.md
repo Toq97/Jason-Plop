@@ -28,28 +28,28 @@ var morgan = require('morgan')
 **Script files Description:**
 -----------------------
 Directory Api:
- - json.js
- - errorHandling.js = file used to manage the error of the calls
+ - json.js = file that handle all the method(GET, PUT, POST).
+ - errorHandling.js = file used to manage the error of the calls.
 
 Directory client:
- - client.js = manage the client of application
- - index.html = the web page used for see the results
+ - client.js = manage the client of application.
+ - index.html = the web page used for see the results.
 
 
 Directory server:
-- app.js = file used to manage the header of
-- server.js
+- app.js = file used to manage the header and the errors of the server.
+- server.js = file used to configure the server.
 
 Other file:
-- package-lock.json
-- package.json
+- package-lock.json = a json with various information about the modules.
+- package.json = a json with various information about the project.
 
 
 **Node modules**
-- express
-- morgan: 
-- body-parser:
-- unique-id-generator: 
+- express: framework for web application NODE.js and API creation.
+- morgan: a module for logging request details.
+- body-parser: a module that returns middleware that only parses json.
+- unique-id-generator: a module that create unique id randomly.
 
 **Postable data**
 To be posted on this server a json must have the following properties:
