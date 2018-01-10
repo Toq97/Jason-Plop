@@ -11,47 +11,64 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body background = "immagini/sfondo.jpg">
-    <h1 class="title">JSON Plop</h1>
+<h1 class="title">JSON Plop</h1>
 
 <div class="container1">
 
-
-<div>
-  <img src="immagini/luke.jpg" class="luke" />
-  <img src="immagini/HanSolo.jpg" class="Han" />
-  <img src="immagini/leia.png" class="leia" />
-</div>
+    <div>
+        <img src="immagini/luke.jpg" class="luke" />
+        <img src="immagini/HanSolo.jpg" class="Han" />
+        <img src="immagini/leia.png" class="leia" />
+    </div>
 
 
     <div class="allrequestbutton">
-  <button id="get-Luke"><p href="#luketext" data-toggle="collapse">Get information about Luke</p></button>
-   <button id="get-Han"><p href="#hantext" data-toggle="collapse">Get information about Han</p></button>
-   <button id="get-Leila"><p href="#leilatext" data-toggle="collapse">Get information about Leila</p></button>
-   </div>
+        <button id="get-Luke"><p href="#luketext" data-toggle="collapse">Get information about Luke</p></button>
+        <button id="get-Han"><p href="#hantext" data-toggle="collapse">Get information about Han</p></button>
+        <button id="get-Leila"><p href="#leilatext" data-toggle="collapse">Get information about Leila</p></button>
+    </div>
 
-<div class="collapsetext">
+    <div class="collapsetext">
+        <div id="luketext" class="collapse"></div>
+        <div id="hantext" class="collapse"></div>
+        <div id="leilatext" class="collapse"></div>
+    </div>
 
+    <div class="allrequestbutton2">
+        <button id="put-luke"><p href="#luketextput" data-toggle="collapse">Put information about Luke</p></button>
+        <button id="put-Han"><p href="#hantextput" data-toggle="collapse">Put information about Han</p></button>
+        <button id="put-Leila"><p href="#leiatextput" data-toggle="collapse">Put information about Leia</p></button>
+    </div>
 
-   <div id="luketext" class="collapse">
-   </div>
-   <div id="hantext" class="collapse">
-   </div>
+    <div class="collapsetext">
+        <div id="luketextput" class="collapse">
+            <div><label for="">Missione da aggiungere: <input type="text" id="missioneluke-put"></label></div>
+            <button id="putluke-btn">Aggiungi</button>
+        </div>
+        <div id="hantextput" class="collapse"></div>
+        <div id="leilatextput" class="collapse"></div>
+    </div>
+    <h2>_</h2>
 
-   <div id="leilatext" class="collapse">
-   </div>
+    <div class="post-container">
+        <h2>Post</h2>
+        <h3>Inserisci il tuo jedi nel nostro DB</h3>
+        <form method="post">
+            <label for="">Nome: <input type="text" id="nome-post"></label>
+            <label for="">Cognome: <input type="text" id="cognome-post"></label>
+            <div><label for="">Missione da compiere 1: <input type="text" id="missione1-post"></label></div>
+            <div><label for="">Missione da compiere 2: <input type="text" id="missione2-post"></label></div>
+            <div><label for="">Missione da compiere 3: <input type="text" id="missione3-post"></label></div>
+            <div><label for="">Missione compiuta 1: <input type="text" id="compiuta1-post"></label></div>
+            <div><label for="">Missione compiuta 2: <input type="text" id="compiuta2-post"></label></div>
+            <div><label for="">Missione compiuta 3: <input type="text" id="compiuta3-post"></label></div>
+        </form>
+        <button id="post-btn">Pubblica</button>
+    </div>
 
 </div>
 
-   <div class="allrequestbutton2">
- <button id="put-luke">Put information about Luke</button>
-  <button id="put-Han"> Put information about Han</button>
-  <button id="put-Leila">Put information about Leia</button>
-  </div>
 
-<button id="post-btn">Post</button>
-  </div>
     <script src="client.js"></script>
-
-
 </body>
 </html>

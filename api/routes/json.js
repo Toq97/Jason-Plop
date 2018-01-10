@@ -1,4 +1,11 @@
 /**
+ * file: json.js
+ * @author: group 05: Toquir, Gianluca, Pietro, Stefano
+ * Set the AJAX calls to our server
+ */
+
+
+/**
  * constant that takes the express modules
  * @type {[modules]}
  */
@@ -23,6 +30,10 @@ const fs = require('fs');
  * @type {[type]}
  */
 const errorHandling = require('../utilities/errorHandling');
+
+
+/**** GET  ****/
+ //Handle get calls
 /**
  * using router to register different well routes
  */
@@ -40,26 +51,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) => {
-    // utilizzo dell id col prefisso
-    var id = generateID({prefix:"id-"});
-    console.log('id: '+id);
-    console.log('dati: ');
-    console.log(req.body);
-    const jsonData = {
-        nome: req.body.nome,
-        cognome: req.body.cognome,
-        missioniEffettuate: req.body.missioniEffettuate,
-        missioniDaEffettuare: req.body.missioniDaEffettuare
-    };
-    console.log(jsonData);
-
-    fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
-        errorHandling.checkErrorForPost(res, err);
-    });
-
-});
-
 /**
  * get with a specific id
  */
@@ -74,6 +65,27 @@ router.post('/', (req, res, next) => {
          }
      });
  });
+
+ /**** POST ****/
+ //Handle post calls
+ router.post('/', (req, res, next) => {
+    var id = generateID({prefix:"id-"});
+    //the data must have the proper properties
+    const jsonData = {
+        nome: req.body.nome,
+        cognome: req.body.cognome,
+        missioniEffettuate: req.body.missioniEffettuate,
+        missioniDaEffettuare: req.body.missioniDaEffettuare
+    };
+
+    fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
+        errorHandling.checkErrorForPost(res, err);
+    });
+
+});
+
+/**** PUT ****/
+ //Handle put calls
 /**
  * update a specific Id
  */
@@ -81,7 +93,7 @@ router.put('/:jsonId', (req, res, next) => {
     const id = req.params.jsonId;
     if(fs.existsSync('./data/' + id + '.json')){
         fs.writeFile('./data/' + id + '.json', JSON.stringify(req.body), (err) => {
-            errorHandling.checkErrorForPut(res, err);
+            errorHandling.checkErrorForPut(res, req, err);
         });
     } else {
         console.log('file read error'); // gestire l'errore

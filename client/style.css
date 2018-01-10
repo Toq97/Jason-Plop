@@ -29,22 +29,43 @@ body{
   width: 100%;
   float: left;
   display: block;
+  margin-bottom: 10px;
 }
 
 #luketext{
 
-
+    width: 300px;
     background-color: white;
 }
 
 #hantext{
-
+    width: 300px;
     background-color: white;
+    margin-left: 305px;
 }
 
 #leilatext{
-
+   width: 300px;
     background-color: white;
+    margin-left: 610px;
+}
+
+#luketextput{
+
+    width: 300px;
+    background-color: white;
+}
+
+#hantexput{
+    width: 300px;
+    background-color: white;
+    margin-left: 305px;
+}
+
+#leilatextput{
+   width: 300px;
+    background-color: white;
+    margin-left: 610px;
 }
 
 .allrequestbutton2{
@@ -99,8 +120,6 @@ margin-bottom: 10px;
   background-color: red;
 }
 
-
-
 #put-Leila{
 
   height: 50px;
@@ -122,4 +141,10 @@ margin-bottom: 10px;
 .leia{
   width: 300px;
   height: 600px;
+}
+
+.post-container {
+  background-color: lightblue;
+  width: 75%;
+  margin-top: 20px;
 }
