@@ -1,20 +1,23 @@
-/**
- * file: client.js
- * @author: group 05: Toquir, Gianluca, Pietro, Stefano
- * Manage the dom and make the AJAX calls to our server
- */
-
 /*** GET ***/
+// instantiate a new request
+
 
 /**
- * Get data from the luke.json file on the server
+ * [Function get from luke.json]
+ * @return {[]} [print the object]
  */
 function getFromLuke() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
+<<<<<<< HEAD
         document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
+=======
+
+
+        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
+>>>>>>> 835a6fff296c130320dcf445667465be25f922bc
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -22,14 +25,15 @@ function getFromLuke() {
 }
 
 /**
- * Get data from the leia.json file on the server
+ * [Function get from leila.json]
+ * @return {[]} [print the object]
  */
 function getFromLeia() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
-      document.getElementById('leilatext').innerHTML = leilaData.getJson.nome;
+      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
 
 });
 
@@ -40,7 +44,8 @@ function getFromLeia() {
 }
 
 /**
- * Get data from the han.json file on the server
+ * [Function get from han.json]
+ * @return {[]} [print the object]
  */
 function getFromHan() {
     var getRequest = new XMLHttpRequest();
@@ -49,7 +54,7 @@ function getFromHan() {
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
         var hanData = JSON.parse(getRequest.responseText);
-        document.getElementById('hantext').innerHTML = hanData.getJson.nome;
+        document.getElementById('hantext').innerHTML = "Io sono "+hanData.getJson.nome+" "+hanData.getJson.cognome+" e <br>"+yediyes(hanData.getJson.Jedi)+"<br>"+printMission(hanData.getJson.missionieffetuate)+"<br>"+printMission2(hanData.getJson.missionidaeffettuare);
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
@@ -61,7 +66,8 @@ function getFromHan() {
 /*** PUT  ***/
 
 /**
- * Update the file luke.json on the server with new data
+ * [Function put to luke.json]
+ * @return {[]} [print the object in the console]
  */
 function putToLuke () {
     var putRequest = new XMLHttpRequest();
@@ -79,8 +85,8 @@ function putToLuke () {
           "nome":"Luke",
           "cognome":"Skywalker",
           "Jedi":"Yes",
-          "missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
-          "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
+          "missionieffetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
+          "missionidaeffettuare":["insegnamento jedi","Potenziamento della forza"]
         })
     );
 }
@@ -88,7 +94,8 @@ function putToLuke () {
 
 /*** POST  ***/
 /**
- * Post on the server the json with the data in the form
+ * [Function that create a new element with post]
+ * @return {[]} [print the object]
  */
 function postToJson() {
     var postRequest = new XMLHttpRequest();
@@ -107,20 +114,32 @@ function postToJson() {
     );
 }
 
+<<<<<<< HEAD
+=======
+
+
+/**
+ * [manager the collapse panel]
+ */
+>>>>>>> 835a6fff296c130320dcf445667465be25f922bc
 function managerCollapseluke(){
     document.getElementById('hantext').innerHTML = "";
     document.getElementById('leilatext').innerHTML = "";
     getFromLuke();
 
 }
-
+/**
+ * [manager the collapse panel]
+ */
 function managerCollapseleila(){
     document.getElementById('hantext').innerHTML = "";
     document.getElementById('luketext').innerHTML = "";
     getFromLeia();
 
 }
-
+/**
+ * [manager the collapse panel]
+ */
 function managerCollapsehan(){
     document.getElementById('leilatext').innerHTML = "";
     document.getElementById('luketext').innerHTML = "";
@@ -128,8 +147,48 @@ function managerCollapsehan(){
 
 }
 
+//function use for print the jedi status
+function yediyes(yedi){
+    if (yedi == "yes" || yedi == "Yes"){
+        return "sono un Yedy.";
+      }
+      else {
+        return "non sono un Yedy.";
+      }
 
+<<<<<<< HEAD
 // DOM elements containig datas to load on the server
+=======
+}
+
+
+//function that print the mission
+function printMission(array){
+  var mission = "Le mie missioni effettuate: ";
+
+  for (var i = 0;i<array.length;i++){
+
+    mission=mission+"<br>- "+array[i];
+  }
+
+  return mission;
+}
+
+//function that print the mission
+function printMission2(array){
+  var mission = "Le mie missioni da effettuare: ";
+
+  for (var i = 0;i<array.length;i++){
+
+    mission=mission+"<br>- "+array[i];
+  }
+
+  return mission;
+}
+
+
+//take the element to the doma
+>>>>>>> 835a6fff296c130320dcf445667465be25f922bc
 var nomePostInput = document.getElementById('nome-post');
 var cognomePostInput = document.getElementById('cognome-post');
 var missione1PostInput = document.getElementById('missione1-post');
@@ -139,8 +198,9 @@ var compiuta1PostInput = document.getElementById('compiuta1-post');
 var compiuta2PostInput = document.getElementById('compiuta2-post');
 var compiuta3PostInput = document.getElementById('compiuta3-post');
 
+
 /**
- * Return the json to post on the server
+ * [create the object for the post]
  */
 function createPostObj() {
     return {
@@ -151,20 +211,29 @@ function createPostObj() {
     };
 }
 
-//Buttons to let the user make AJAX calls
+
+//take the button to the dom
 var getLukeBtn = document.getElementById('get-Luke');
 var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
-//var getGoodbyeBtn = document.getElementById('get-goodbye');
-//var putLocalhostBtn = document.getElementById('put-localhost');
 var putLukeBtn = document.getElementById('put-luke');
 var postBtn = document.getElementById('post-btn');
 
+<<<<<<< HEAD
 //Assign the proper AJAX call to each button in the DOM
 getLukeBtn.addEventListener('click', managerCollapseluke);
 getLeiaBtn.addEventListener('click', managerCollapseleila);
 getHanBtn.addEventListener('click', managerCollapsehan);
 //getLukeBtn.addEventListener('click', getFromOne('luke'));
 //putLocalhostBtn.addEventListener('click', putToLocalhost);
+=======
+
+
+
+//assign the function at the buttons
+getLukeBtn.addEventListener('click', managerCollapseluke);
+getLeiaBtn.addEventListener('click', managerCollapseleila);
+getHanBtn.addEventListener('click', managerCollapsehan);
+>>>>>>> 835a6fff296c130320dcf445667465be25f922bc
 putLukeBtn.addEventListener('click', putToLuke);
 postBtn.addEventListener('click', postToJson);
