@@ -11,9 +11,13 @@ function getFromLuke() {
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
+<<<<<<< HEAD
+        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
+=======
 
 
         document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate,0)+"<br>"+printMission(lukeData.getJson.missionidaeffettuare,1);
+>>>>>>> 3c2e2888b1a72f68c059e054592b94a58ea9148e
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -29,12 +33,16 @@ function getFromLeia() {
     // add event listeners
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
+<<<<<<< HEAD
+      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
+    });
+=======
       document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate,0)+"<br>"+printMission(leilaData.getJson.missionidaeffettuare,1);
 
 });
+>>>>>>> 3c2e2888b1a72f68c059e054592b94a58ea9148e
 
     getRequest.open('GET', 'http://localhost:3000/json/leia', true);
-
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
@@ -45,7 +53,6 @@ function getFromLeia() {
  */
 function getFromHan() {
     var getRequest = new XMLHttpRequest();
-
     // add event listeners
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
@@ -54,13 +61,24 @@ function getFromHan() {
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
-
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
 
 /*** PUT  ***/
-
+function getDataForPut(){
+    var data = [];
+    var getRequest = new XMLHttpRequest();
+    // add event listeners
+    getRequest.addEventListener('load', function() {
+        var lukeData = JSON.parse(getRequest.responseText);
+        data[0] = lukeData.getJson;
+    });
+    getRequest.open('GET', 'http://localhost:3000/json/luke', true);
+    getRequest.setRequestHeader('Content-type', 'application/json');
+    getRequest.send();
+    return data;
+}
 /**
  * [Function put to luke.json]
  * @return {[]} [print the object in the console]
@@ -72,9 +90,13 @@ function putToLuke () {
     putRequest.onload = function() {
         if (putRequest.status === 200) {
             var userInfo = JSON.parse(putRequest.responseText);
+            var putMessage = document.getElementById('putMessage');
+            putMessage.innerHTML = userInfo.message;
         }
-        console.log(putRequest.responseText);
     };
+var arrayLukeData = getDataForPut();
+console.log(arrayLukeData[0]);
+
 
     putRequest.send(
         JSON.stringify({
