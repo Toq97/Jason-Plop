@@ -11,8 +11,9 @@ function getFromLuke() {
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
-        //console.log(lukeData.getJson.missioni effettuate);
-        document.getElementById('luketext').innerHTML = "I am "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" and <br>"+yediyes(lukeData.getJson.Jedi);
+
+
+        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -28,7 +29,7 @@ function getFromLeia() {
     // add event listeners
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
-      document.getElementById('leilatext').innerHTML = leilaData.getJson.nome;
+      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
 
 });
 
@@ -49,7 +50,7 @@ function getFromHan() {
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
         var hanData = JSON.parse(getRequest.responseText);
-        document.getElementById('hantext').innerHTML = hanData.getJson.nome;
+        document.getElementById('hantext').innerHTML = "Io sono "+hanData.getJson.nome+" "+hanData.getJson.cognome+" e <br>"+yediyes(hanData.getJson.Jedi)+"<br>"+printMission(hanData.getJson.missionieffetuate)+"<br>"+printMission2(hanData.getJson.missionidaeffettuare);
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
@@ -80,8 +81,8 @@ function putToLuke () {
           "nome":"Luke",
           "cognome":"Skywalker",
           "Jedi":"Yes",
-          "missioni effetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
-          "Missioni da effettuare":["insegnamento jedi","Potenziamento della forza"]
+          "missionieffetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
+          "missionidaeffettuare":["insegnamento jedi","Potenziamento della forza"]
         })
     );
 }
@@ -139,15 +140,40 @@ function managerCollapsehan(){
 
 }
 
-//funxtion use for print the jedi status
+//function use for print the jedi status
 function yediyes(yedi){
     if (yedi == "yes" || yedi == "Yes"){
-        return "i am a Yedy.";
+        return "sono un Yedy.";
       }
       else {
-        return "i am not a Yedy.";
+        return "non sono un Yedy.";
       }
 
+}
+
+
+//function that print the mission
+function printMission(array){
+  var mission = "Le mie missioni effettuate: ";
+
+  for (var i = 0;i<array.length;i++){
+
+    mission=mission+"<br>- "+array[i];
+  }
+
+  return mission;
+}
+
+//function that print the mission
+function printMission2(array){
+  var mission = "Le mie missioni da effettuare: ";
+
+  for (var i = 0;i<array.length;i++){
+
+    mission=mission+"<br>- "+array[i];
+  }
+
+  return mission;
 }
 
 

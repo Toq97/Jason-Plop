@@ -2,6 +2,6 @@
     "nome":"Han",
     "cognome":"Solo",
     "Jedi":"no",
-    "missioni effetuate":["manuntenzione Falcon","distruzione Morte Nera"],
-    "Missioni da effettuare":["Sopresa a Leia"]
+    "missionieffetuate":["manuntenzione Falcon","distruzione Morte Nera"],
+    "missionidaeffettuare":["Sopresa a Leia"]
 }
