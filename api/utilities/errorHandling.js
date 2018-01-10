@@ -142,7 +142,7 @@ module.exports = {
             errorType(error,res);
         } else {
             res.status(200).json({
-                message:'update!',
+                message:'your data has been updated!',
                 jsonUpdated: req.body
             });
         }

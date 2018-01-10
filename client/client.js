@@ -11,8 +11,6 @@ function getFromLuke() {
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
-
-
         document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
@@ -30,11 +28,9 @@ function getFromLeia() {
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
       document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
-
-});
+    });
 
     getRequest.open('GET', 'http://localhost:3000/json/leia', true);
-
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
@@ -45,7 +41,6 @@ function getFromLeia() {
  */
 function getFromHan() {
     var getRequest = new XMLHttpRequest();
-
     // add event listeners
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
@@ -54,13 +49,24 @@ function getFromHan() {
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
-
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
 
 /*** PUT  ***/
-
+function getDataForPut(){
+    var data = [];
+    var getRequest = new XMLHttpRequest();
+    // add event listeners
+    getRequest.addEventListener('load', function() {
+        var lukeData = JSON.parse(getRequest.responseText);
+        data[0] = lukeData.getJson;
+    });
+    getRequest.open('GET', 'http://localhost:3000/json/luke', true);
+    getRequest.setRequestHeader('Content-type', 'application/json');
+    getRequest.send();
+    return data;
+}
 /**
  * [Function put to luke.json]
  * @return {[]} [print the object in the console]
@@ -72,9 +78,13 @@ function putToLuke () {
     putRequest.onload = function() {
         if (putRequest.status === 200) {
             var userInfo = JSON.parse(putRequest.responseText);
+            var putMessage = document.getElementById('putMessage');
+            putMessage.innerHTML = userInfo.message;
         }
-        console.log(putRequest.responseText);
     };
+var arrayLukeData = getDataForPut();
+console.log(arrayLukeData[0]);
+
 
     putRequest.send(
         JSON.stringify({
