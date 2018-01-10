@@ -1,17 +1,28 @@
 /*** GET ***/
 // instantiate a new request
+
+
+/**
+ * [Function get from luke.json]
+ * @return {[]} [print the object]
+ */
 function getFromLuke() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
-        document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
+        //console.log(lukeData.getJson.missioni effettuate);
+        document.getElementById('luketext').innerHTML = "I am "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" and <br>"+yediyes(lukeData.getJson.Jedi);
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
 
+/**
+ * [Function get from leila.json]
+ * @return {[]} [print the object]
+ */
 function getFromLeia() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
@@ -27,6 +38,10 @@ function getFromLeia() {
     getRequest.send();
 }
 
+/**
+ * [Function get from han.json]
+ * @return {[]} [print the object]
+ */
 function getFromHan() {
     var getRequest = new XMLHttpRequest();
 
@@ -45,6 +60,10 @@ function getFromHan() {
 
 /*** PUT  ***/
 
+/**
+ * [Function put to luke.json]
+ * @return {[]} [print the object in the console]
+ */
 function putToLuke () {
     var putRequest = new XMLHttpRequest();
     putRequest.open('PUT', 'http://localhost:3000/json/luke');
@@ -69,6 +88,10 @@ function putToLuke () {
 
 
 /*** POST  ***/
+/**
+ * [Function that create a new element with post]
+ * @return {[]} [print the object]
+ */
 function postToJson() {
     var postRequest = new XMLHttpRequest();
     postRequest.open('POST', 'http://localhost:3000/json/');
@@ -88,21 +111,27 @@ function postToJson() {
 
 
 
-
+/**
+ * [manager the collapse panel]
+ */
 function managerCollapseluke(){
     document.getElementById('hantext').innerHTML = "";
     document.getElementById('leilatext').innerHTML = "";
     getFromLuke();
 
 }
-
+/**
+ * [manager the collapse panel]
+ */
 function managerCollapseleila(){
     document.getElementById('hantext').innerHTML = "";
     document.getElementById('luketext').innerHTML = "";
     getFromLeia();
 
 }
-
+/**
+ * [manager the collapse panel]
+ */
 function managerCollapsehan(){
     document.getElementById('leilatext').innerHTML = "";
     document.getElementById('luketext').innerHTML = "";
@@ -110,8 +139,19 @@ function managerCollapsehan(){
 
 }
 
+//funxtion use for print the jedi status
+function yediyes(yedi){
+    if (yedi == "yes" || yedi == "Yes"){
+        return "i am a Yedy.";
+      }
+      else {
+        return "i am not a Yedy.";
+      }
+
+}
 
 
+//take the element to the doma
 var nomePostInput = document.getElementById('nome-post');
 var cognomePostInput = document.getElementById('cognome-post');
 var missione1PostInput = document.getElementById('missione1-post');
@@ -121,6 +161,10 @@ var compiuta1PostInput = document.getElementById('compiuta1-post');
 var compiuta2PostInput = document.getElementById('compiuta2-post');
 var compiuta3PostInput = document.getElementById('compiuta3-post');
 
+
+/**
+ * [create the object for the post]
+ */
 function createPostObj() {
     return {
         nome: nomePostInput.value,
@@ -130,20 +174,20 @@ function createPostObj() {
     };
 }
 
+
+//take the button to the dom
 var getLukeBtn = document.getElementById('get-Luke');
 var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
-//var getGoodbyeBtn = document.getElementById('get-goodbye');
-//var putLocalhostBtn = document.getElementById('put-localhost');
 var putLukeBtn = document.getElementById('put-luke');
-
 var postBtn = document.getElementById('post-btn');
 
+
+
+
+//assign the function at the buttons
 getLukeBtn.addEventListener('click', managerCollapseluke);
 getLeiaBtn.addEventListener('click', managerCollapseleila);
 getHanBtn.addEventListener('click', managerCollapsehan);
-//getLukeBtn.addEventListener('click', getFromOne('luke'));
-//getGoodbyeBtn.addEventListener('click', getFromGoodBye);
-//putLocalhostBtn.addEventListener('click', putToLocalhost);
 putLukeBtn.addEventListener('click', putToLuke);
 postBtn.addEventListener('click', postToJson);
