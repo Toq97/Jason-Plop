@@ -100,7 +100,6 @@ function putToLeila () {
         if (putRequest.status === 200) {
             var userInfo = JSON.parse(putRequest.responseText);
         }
-        console.log(putRequest.responseText);
     };
 
     putRequest.send(
@@ -128,7 +127,6 @@ function putToHan () {
         if (putRequest.status === 200) {
             var userInfo = JSON.parse(putRequest.responseText);
         }
-        console.log(putRequest.responseText);
     };
 
     putRequest.send(
@@ -157,7 +155,6 @@ function postToJson() {
         if (postRequest.status === 200) {
             var userInfo = JSON.parse(postRequest.responseText);
         }
-        console.log(postRequest.responseText);
 
     };
 

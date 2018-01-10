@@ -96,7 +96,6 @@ router.put('/:jsonId', (req, res, next) => {
             errorHandling.checkErrorForPut(res, req, err);
         });
     } else {
-        console.log('file read error'); // gestire l'errore
         res.status(404).json({});
     }
 });
