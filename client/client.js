@@ -154,7 +154,6 @@ function postToJson() {
         if (postRequest.status === 200) {
             var userInfo = JSON.parse(postRequest.responseText);
         }
-        console.log(postRequest.responseText);
 
     };
 
