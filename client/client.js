@@ -82,7 +82,7 @@ function putToLuke () {
           "cognome":"Skywalker",
           "Jedi":"Yes",
           "missionieffetuate":["Yoda mission","Morte nera mission","Darth Vader mission"],
-          "missionidaeffettuare":["insegnamento jedi","Potenziamento della forza"]
+          "missionidaeffettuare":["insegnamento jedi","Potenziamento della forza",newlukemission.value]
         })
     );
 }
@@ -188,6 +188,9 @@ var compiuta2PostInput = document.getElementById('compiuta2-post');
 var compiuta3PostInput = document.getElementById('compiuta3-post');
 
 
+var newlukemission =  document.getElementById('missioneluke-put');
+
+
 /**
  * [create the object for the post]
  */
@@ -205,7 +208,7 @@ function createPostObj() {
 var getLukeBtn = document.getElementById('get-Luke');
 var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
-var putLukeBtn = document.getElementById('put-luke');
+var putLukeBtn = document.getElementById('putluke-btn');
 var postBtn = document.getElementById('post-btn');
 
 
