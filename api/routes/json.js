@@ -55,16 +55,9 @@ router.post('/', (req, res, next) => {
     console.log(jsonData);
 
     fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
-        if(err){
-            throw err;
-        } else {
-            res.status(200).json({
-                message: 'handling POST request to /json',
-                createdJson: jsonData
-            });
-        }
+        errorHandling.checkErrorForPost(res, err);
     });
-    
+
 });
 
 /**

@@ -148,6 +148,21 @@ module.exports = {
                 jsonUpdated: req.body
             });
         }
+    },
+/**
+ * function that check the errors in a post request
+ * @param  {object} res   [the response of the get requet]
+ * @param  {object} error [contain the properties of the error]
+ */
+    checkErrorForPost: function(res, error){
+        if(error){
+            errorType(error,res);
+        } else {
+            res.status(200).json({
+                message: 'handling POST request to /json',
+                createdJson: jsonData
+            });
+        }
     }
-    
+
     };
