@@ -152,7 +152,7 @@ module.exports = {
  * @param  {object} res   [the response of the get requet]
  * @param  {object} error [contain the properties of the error]
  */
-    checkErrorForPost: function(res, error){
+    checkErrorForPost: function(res, error, jsonData, id){
         if(error){
             errorType(error,res);
         } else {

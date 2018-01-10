@@ -79,7 +79,7 @@ router.get('/', (req, res, next) => {
     };
 
     fs.writeFile('./data/jed' + id + '.json', JSON.stringify(jsonData), (err) => {
-        errorHandling.checkErrorForPost(res, err);
+        errorHandling.checkErrorForPost(res, err, jsonData, id);
     });
 
 });
