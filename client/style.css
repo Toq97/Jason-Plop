@@ -39,33 +39,36 @@ body{
 }
 
 #hantext{
-    width: 300px;
+    width: 295px;
     background-color: white;
     margin-left: 305px;
 }
 
 #leilatext{
-   width: 300px;
+   width: 295px;
     background-color: white;
-    margin-left: 610px;
+    margin-left: 612px;
 }
 
 #luketextput{
 
-    width: 300px;
+    width: 295px;
+    float:left;
     background-color: white;
 }
 
 #hantextput{
-    width: 300px;
-    background-color: white;
+    width: 295px;
     margin-left: 305px;
+    background-color: white;
+
 }
 
 #leilatextput{
    width: 300px;
-    background-color: white;
-    margin-left: 610px;
+   margin-left: 610px;
+   background-color: white;
+
 }
 
 .allrequestbutton2{

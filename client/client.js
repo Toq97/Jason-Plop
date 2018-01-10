@@ -11,7 +11,9 @@ function getFromLuke() {
     // add event listeners
     getRequest.addEventListener('load', function() {
         var lukeData = JSON.parse(getRequest.responseText);
-        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
+        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+
+        " e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate,0)+"<br>"+
+        printMission(lukeData.getJson.missionidaeffettuare,1);
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -27,10 +29,12 @@ function getFromLeia() {
     // add event listeners
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
-      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
+      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+
+      " e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate,0)+"<br>"+
+      printMission(leilaData.getJson.missionidaeffettuare,1);
     });
 
-    getRequest.open('GET', 'http://localhost:3000/json/leia', true);
+    getRequest.open('GET', 'http://localhost:3000/json/leila', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
     getRequest.send();
 }
