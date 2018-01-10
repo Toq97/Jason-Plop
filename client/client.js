@@ -13,7 +13,7 @@ function getFromLuke() {
         var lukeData = JSON.parse(getRequest.responseText);
 
 
-        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate)+"<br>"+printMission2(lukeData.getJson.missionidaeffettuare);
+        document.getElementById('luketext').innerHTML = "Io sono "+lukeData.getJson.nome+" "+lukeData.getJson.cognome+" e <br>"+yediyes(lukeData.getJson.Jedi)+"<br>"+printMission(lukeData.getJson.missionieffetuate,0)+"<br>"+printMission(lukeData.getJson.missionidaeffettuare,1);
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -29,7 +29,7 @@ function getFromLeia() {
     // add event listeners
     getRequest.addEventListener('load', function() {
       var leilaData = JSON.parse(getRequest.responseText);
-      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate)+"<br>"+printMission2(leilaData.getJson.missionidaeffettuare);
+      document.getElementById('leilatext').innerHTML = "Io sono "+leilaData.getJson.nome+" "+leilaData.getJson.cognome+" e <br>"+yediyes(leilaData.getJson.Jedi)+"<br>"+printMission(leilaData.getJson.missionieffetuate,0)+"<br>"+printMission(leilaData.getJson.missionidaeffettuare,1);
 
 });
 
@@ -50,7 +50,7 @@ function getFromHan() {
     getRequest.addEventListener('load', function() {
         // transform a string into a usable object
         var hanData = JSON.parse(getRequest.responseText);
-        document.getElementById('hantext').innerHTML = "Io sono "+hanData.getJson.nome+" "+hanData.getJson.cognome+" e <br>"+yediyes(hanData.getJson.Jedi)+"<br>"+printMission(hanData.getJson.missionieffetuate)+"<br>"+printMission2(hanData.getJson.missionidaeffettuare);
+        document.getElementById('hantext').innerHTML = "Io sono "+hanData.getJson.nome+" "+hanData.getJson.cognome+" e <br>"+yediyes(hanData.getJson.Jedi)+"<br>"+printMission(hanData.getJson.missionieffetuate,0)+"<br>"+printMission(hanData.getJson.missionidaeffettuare,1);
     });
 
     getRequest.open('GET', 'http://localhost:3000/json/han', true);
@@ -86,6 +86,62 @@ function putToLuke () {
         })
     );
 }
+
+
+/**
+ * [Function put to leia.json]
+ * @return {[]} [print the object in the console]
+ */
+function putToLeila () {
+    var putRequest = new XMLHttpRequest();
+    putRequest.open('PUT', 'http://localhost:3000/json/leia');
+    putRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    putRequest.onload = function() {
+        if (putRequest.status === 200) {
+            var userInfo = JSON.parse(putRequest.responseText);
+        }
+        console.log(putRequest.responseText);
+    };
+
+    putRequest.send(
+        JSON.stringify({
+          "nome":"Leia",
+          "cognome":"Skywalker",
+          "Jedi":"yes",
+          "missionieffetuate":["pace su Tatooine","Morte nera mission"],
+           "missionidaeffettuare":["pace nella galassia","Potenziamento della forza",newleilamission.value]
+        })
+    );
+}
+
+
+
+/**
+ * [Function put to leia.json]
+ * @return {[]} [print the object in the console]
+ */
+function putToHan () {
+    var putRequest = new XMLHttpRequest();
+    putRequest.open('PUT', 'http://localhost:3000/json/han');
+    putRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    putRequest.onload = function() {
+        if (putRequest.status === 200) {
+            var userInfo = JSON.parse(putRequest.responseText);
+        }
+        console.log(putRequest.responseText);
+    };
+
+    putRequest.send(
+        JSON.stringify({
+          "nome":"Han",
+          "cognome":"Solo",
+          "Jedi":"no",
+          "missionieffetuate":["manuntenzione Falcon","distruzione Morte Nera"],
+          "missionidaeffettuare":["Sopresa a Leia",newhanmission.value]
+        })
+    );
+}
+
 
 
 /*** POST  ***/
@@ -153,28 +209,30 @@ function yediyes(yedi){
 
 
 //function that print the mission
-function printMission(array){
-  var mission = "Le mie missioni effettuate: ";
+function printMission(array,l){
+  if(l == 0){
+      var mission = "Le mie missioni effettuate: ";
 
-  for (var i = 0;i<array.length;i++){
+      for (var i = 0;i<array.length;i++){
 
-    mission=mission+"<br>- "+array[i];
+        mission=mission+"<br>- "+array[i];
+      }
+
+      return mission;
+  }else{
+    var mission = "Le mie missioni da effettuare: ";
+
+    for (var i = 0;i<array.length;i++){
+
+      mission=mission+"<br>- "+array[i];
+    }
+
+    return mission;
   }
 
-  return mission;
 }
 
-//function that print the mission
-function printMission2(array){
-  var mission = "Le mie missioni da effettuare: ";
 
-  for (var i = 0;i<array.length;i++){
-
-    mission=mission+"<br>- "+array[i];
-  }
-
-  return mission;
-}
 
 
 //take the element to the doma
@@ -189,7 +247,8 @@ var compiuta3PostInput = document.getElementById('compiuta3-post');
 
 
 var newlukemission =  document.getElementById('missioneluke-put');
-
+var newleilamission =  document.getElementById('missioneleila-put');
+var newhanmission =  document.getElementById('missionehan-put');
 
 /**
  * [create the object for the post]
@@ -209,6 +268,8 @@ var getLukeBtn = document.getElementById('get-Luke');
 var getHanBtn = document.getElementById('get-Han');
 var getLeiaBtn = document.getElementById('get-Leila');
 var putLukeBtn = document.getElementById('putluke-btn');
+var putHanBtn = document.getElementById('puthan-btn');
+var putLeilaBtn = document.getElementById('putleila-btn');
 var postBtn = document.getElementById('post-btn');
 
 
@@ -219,4 +280,6 @@ getLukeBtn.addEventListener('click', managerCollapseluke);
 getLeiaBtn.addEventListener('click', managerCollapseleila);
 getHanBtn.addEventListener('click', managerCollapsehan);
 putLukeBtn.addEventListener('click', putToLuke);
+putHanBtn.addEventListener('click', putToHan);
+putLeilaBtn.addEventListener('click', putToLeila);
 postBtn.addEventListener('click', postToJson);
