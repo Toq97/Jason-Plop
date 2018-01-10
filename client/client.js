@@ -13,17 +13,8 @@ function getFromLuke() {
     var getRequest = new XMLHttpRequest();
     // add event listeners
     getRequest.addEventListener('load', function() {
-<<<<<<< HEAD
-        /** se parso questo mi da object object**/
-        /** se lo vedi non parsato vedi che c'e il json giusto**/
-        console.log(getRequest.responseText);
-        var lukeData = JSON.parse(getRequest.responseText);
-        console.log(lukeData)
-        document.getElementById('luketext').innerHTML = lukeData.nome;
-=======
         var lukeData = JSON.parse(getRequest.responseText);
         document.getElementById('luketext').innerHTML = lukeData.getJson.nome;
->>>>>>> b152548d58102ef855475bd338cc999478e42881
     });
     getRequest.open('GET', 'http://localhost:3000/json/luke', true);
     getRequest.setRequestHeader('Content-type', 'application/json');
@@ -116,12 +107,6 @@ function postToJson() {
     );
 }
 
-<<<<<<< HEAD
-// DOM elements containig datas to load on the server
-=======
-
-
-
 function managerCollapseluke(){
     document.getElementById('hantext').innerHTML = "";
     document.getElementById('leilatext').innerHTML = "";
@@ -144,8 +129,7 @@ function managerCollapsehan(){
 }
 
 
-
->>>>>>> b152548d58102ef855475bd338cc999478e42881
+// DOM elements containig datas to load on the server
 var nomePostInput = document.getElementById('nome-post');
 var cognomePostInput = document.getElementById('cognome-post');
 var missione1PostInput = document.getElementById('missione1-post');
@@ -176,19 +160,11 @@ var getLeiaBtn = document.getElementById('get-Leila');
 var putLukeBtn = document.getElementById('put-luke');
 var postBtn = document.getElementById('post-btn');
 
-<<<<<<< HEAD
-
 //Assign the proper AJAX call to each button in the DOM
-getLukeBtn.addEventListener('click', getFromLuke);
-getLeiaBtn.addEventListener('click', getFromLeia);
-getHanBtn.addEventListener('click', getFromHan);
-=======
 getLukeBtn.addEventListener('click', managerCollapseluke);
 getLeiaBtn.addEventListener('click', managerCollapseleila);
 getHanBtn.addEventListener('click', managerCollapsehan);
->>>>>>> b152548d58102ef855475bd338cc999478e42881
 //getLukeBtn.addEventListener('click', getFromOne('luke'));
-//getGoodbyeBtn.addEventListener('click', getFromGoodBye);
 //putLocalhostBtn.addEventListener('click', putToLocalhost);
 putLukeBtn.addEventListener('click', putToLuke);
 postBtn.addEventListener('click', postToJson);
