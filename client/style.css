@@ -50,6 +50,24 @@ body{
     margin-left: 610px;
 }
 
+#luketextput{
+
+    width: 300px;
+    background-color: white;
+}
+
+#hantexput{
+    width: 300px;
+    background-color: white;
+    margin-left: 305px;
+}
+
+#leilatextput{
+   width: 300px;
+    background-color: white;
+    margin-left: 610px;
+}
+
 .allrequestbutton2{
   width: 100%;
 margin-bottom: 10px;
